@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 # Initialize the vector database
 vectordb = Chroma(
-    persist_directory="D:/education/iitmchatbot/chromaDB/db", 
+    persist_directory="chromaDB/db", 
     embedding_function=SentenceTransformerEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
@@ -26,7 +26,7 @@ vectordb = Chroma(
 retriever = vectordb.as_retriever()
 
 # Define the model repository ID
-repo_id = "google/gemma-1.1-2b-it"
+repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
 
 # Get the model
 llm = HuggingFaceEndpoint(
